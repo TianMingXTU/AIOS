@@ -1,0 +1,62 @@
+[
+  {
+    "name": "high_cpu_usage",
+    "description": "CPU usage exceeds threshold",
+    "type": "system",
+    "condition": "cpu_percent > 90",
+    "severity": 3,
+    "actions": [
+      "log",
+      "alert",
+      "throttle"
+    ]
+  },
+  {
+    "name": "memory_exhaustion",
+    "description": "Memory usage exceeds threshold",
+    "type": "system",
+    "condition": "memory_percent > 90",
+    "severity": 4,
+    "actions": [
+      "log",
+      "alert",
+      "kill_processes"
+    ]
+  },
+  {
+    "name": "suspicious_process",
+    "description": "Process exhibits suspicious behavior",
+    "type": "process",
+    "condition": "anomaly_score > 0.8",
+    "severity": 4,
+    "actions": [
+      "log",
+      "alert",
+      "isolate"
+    ]
+  },
+  {
+    "name": "file_system_abuse",
+    "description": "Unusual file system activity",
+    "type": "file",
+    "condition": "io_rate > 1000",
+    "severity": 3,
+    "actions": [
+      "log",
+      "alert",
+      "limit_io"
+    ]
+  },
+  {
+    "name": "network_scan",
+    "description": "Potential network scanning activity",
+    "type": "network",
+    "condition": "connection_rate > 100",
+    "severity": 4,
+    "actions": [
+      "log",
+      "alert",
+      "block"
+    ]
+  }
+]
